@@ -1,0 +1,8 @@
+
+const assets = {
+}
+
+
+export {
+    assets
+}
