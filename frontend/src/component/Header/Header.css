@@ -57,10 +57,10 @@
 }
 
 .header-content button{
-    padding: 1vw 2.3vw;
-    font-size: max(1vw,13px);
+    padding: 0.8vw 2.3vw;
+    font-size: max(1.2vw,13px);
     background-color: white;
-    color: #747474;
+    color: var(--text-color);
     font-weight: 500;
     border-radius: 50px;
     cursor: pointer;

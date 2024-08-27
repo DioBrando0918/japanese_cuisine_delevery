@@ -1,0 +1,38 @@
+.app-download{
+    margin: 3rem 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-download p,
+.app-download span{
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.app-download span{
+    font-family: var(--english-font-family);
+}
+
+.app-feature{
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+
+.app-download-platform{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.app-download-platform img {
+    cursor: pointer;
+    padding: 0;
+    border: 2px solid white;
+    border-radius: 14px;
+}

@@ -10,12 +10,12 @@ const Header = () => {
                     <p>立即來品嘗，感受正宗日本料理的獨特魅力，讓味蕾在這場美食盛宴中獲得最美好的滿足！</p>
                     <p>無論你喜愛哪一種日式料理，我們都將以最正宗的風味和最精緻的烹飪方式，帶給你無與倫比的美食體驗。</p>
                 </div>
-                <a href="">
+                <a href="/menu-select">
                     <button>查看菜單</button>
                 </a>
             </div>
 
-            <Carousel interval={3000}  className="image-carousel">
+            <Carousel interval={3000} indicators={false} className="image-carousel">
                 <Carousel.Item>
                     <div className='carousel-background first-slide'></div>
                 </Carousel.Item>

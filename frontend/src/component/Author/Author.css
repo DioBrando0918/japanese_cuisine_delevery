@@ -1,0 +1,16 @@
+.author{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+}
+
+p{
+    margin: 0;
+    padding: 5px;
+    color: white;
+}
+
+span{
+    font-family: var(--english-font-family);
+}
