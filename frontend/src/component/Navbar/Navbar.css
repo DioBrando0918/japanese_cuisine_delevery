@@ -1,7 +1,9 @@
-.navbar{
+.navbar {
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
     background-color: white;
 }
-
 
 .content {
     margin: 0 auto;
@@ -68,6 +70,10 @@ a, a:hover, a:focus, a:active {
     position: relative;
 }
 
+.navbar-right .hamburger{
+    display: none;
+}
+
 .nav-profile:hover .nav-profile-dropdown{
     display: flex;
     flex-direction: column;
@@ -108,7 +114,7 @@ a, a:hover, a:focus, a:active {
     font-size: 1rem;
 }
 
-.navbar .active{
+.active{
     padding-bottom: 2px;
     border-bottom: 2px solid var(--link-color);
 }
@@ -128,3 +134,43 @@ a, a:hover, a:focus, a:active {
 }
 
 
+
+@media (max-width: 800px) {
+    .content{
+        width: 100%;
+    }
+
+    .navbar-menu{
+        z-index: 4;
+        gap: 2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        transition: left .3s ease;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: -100%;
+        padding-top: 2rem;
+    }
+
+    .phone{
+        left: 0;
+    }
+
+    .logo span:last-child{
+        font-size: 1rem;
+    }
+
+    .navbar-right{
+        gap: 10px;
+    }
+
+    .navbar-right .hamburger{
+        display: inline;
+    }
+
+
+}

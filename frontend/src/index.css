@@ -38,6 +38,9 @@ a{
   margin: auto;
 }
 
+#root{
+  overflow-x: hidden;
+}
 
 @keyframes fadeIn {
   0%{
