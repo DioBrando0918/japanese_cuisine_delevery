@@ -112,3 +112,19 @@ a, a:hover, a:focus, a:active {
     padding-bottom: 2px;
     border-bottom: 2px solid var(--link-color);
 }
+
+.shopping-bag{
+    position: relative;
+}
+
+.shopping-bag .dot{
+    position: absolute;
+    min-width: 11px;
+    min-height: 11px;
+    background-color: var(--logo-color);
+    border-radius: 50%;
+    top: -3px;
+    right: -6px;
+}
+
+

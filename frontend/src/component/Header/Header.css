@@ -60,8 +60,9 @@
     padding: 0.8vw 2.3vw;
     font-size: max(1.2vw,13px);
     background-color: white;
-    color: var(--text-color);
+    color: grey;
     font-weight: 500;
     border-radius: 50px;
     cursor: pointer;
+    border: none;
 }

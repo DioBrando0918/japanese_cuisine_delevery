@@ -1,0 +1,7 @@
+.menu-introduce{
+    animation: fadeIn 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

@@ -1,10 +1,16 @@
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import './Navbar.css'
 import {Link} from "react-router-dom";
+import {StoreContext} from "../../context/StoreContext.jsx";
 
 const Navbar = () => {
 
-    const [menu,setMenu] = useState("home")
+    const {menu,setMenu,cartItems} = useContext(StoreContext);
+
+    useEffect(() => {
+        console.log(cartItems)
+        console.log(Object.keys(cartItems).length)
+    }, [cartItems]);
 
     return (
         <div className='navbar'>
@@ -17,7 +23,7 @@ const Navbar = () => {
                     <Link to='/' onClick={() => {
                         setMenu('home')
                     }} className={menu === "home" ? "active" : ""}>回首頁</Link>
-                    <Link  to='/menu-select' onClick={() => {
+                    <Link  to='/menu-introduce' onClick={() => {
                         setMenu('menu')
                     }} className={menu === "menu" ? "active" : ""}>菜單介紹</Link >
                     <a href='#app-download' onClick={() => {
@@ -32,7 +38,7 @@ const Navbar = () => {
                     <span className="material-symbols-outlined">search</span>
                     <div className='shopping-bag'>
                         <span className="material-symbols-outlined">shopping_bag</span>
-                        <div className='dot'></div>
+                        <div className={(Object.values(cartItems).every(value => value === 0) || Object.keys(cartItems).length === 0)?"":"dot"}></div>
                     </div>
                     <div className='nav-profile'>
                         <span className="material-symbols-outlined">person</span>

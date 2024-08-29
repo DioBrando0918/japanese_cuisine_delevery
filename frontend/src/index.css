@@ -15,11 +15,15 @@
   --english-font-family: "Outfit", sans-serif;
   --logo-color:#B5280F;
   --link-color:#8E4320;
-  --text-color:#747474;
+  --text-color: white;
+}
+
+p{
+  color:var(--text-color);
 }
 
 body{
-  /*background: url('/background4_img.jpeg') no-repeat center center;*/
+  background: url('/background4_img.jpeg') no-repeat center center;
   background-size: cover;
   min-height: 100vh;
 }

@@ -1,7 +1,12 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import './Header.css'
 import { Carousel } from 'react-bootstrap';
+import {StoreContext} from "../../context/StoreContext.jsx";
+import {Link} from "react-router-dom";
 const Header = () => {
+
+    const {menu,setMenu} = useContext(StoreContext);
+
     return (
         <div className='header'>
             <div className="header-content">
@@ -10,9 +15,9 @@ const Header = () => {
                     <p>立即來品嘗，感受正宗日本料理的獨特魅力，讓味蕾在這場美食盛宴中獲得最美好的滿足！</p>
                     <p>無論你喜愛哪一種日式料理，我們都將以最正宗的風味和最精緻的烹飪方式，帶給你無與倫比的美食體驗。</p>
                 </div>
-                <a href="/menu-select">
+                <Link to="/menu-introduce" onClick={()=>{setMenu('menu')}}>
                     <button>查看菜單</button>
-                </a>
+                </Link>
             </div>
 
             <Carousel interval={3000} indicators={false} className="image-carousel">

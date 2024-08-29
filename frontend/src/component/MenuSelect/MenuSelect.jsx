@@ -1,12 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './MenuSelect.css'
-import {assets} from "../../assets/assets.js";
+import {assets, menu_list,} from "../../assets/assets.js";
 
-const MenuSelect = () => {
+const MenuSelect = ({category,setCategory}) => {
     return (
         <div className='menu-select' id = 'menu-selct'>
-            <h1>aa</h1>
-            <img src={assets.seasonal_vegetable_ramen_img} alt=""/>
+            <div className='menu-list'>
+                {
+                    menu_list.map((item,index)=>{
+                        return(
+                            <div className='menu-list-item' key={index}>
+                                <img
+                                    onClick={()=>{setCategory((prev)=>(prev === item.menu_name?"All":item.menu_name))}} src={item.menu_image}
+                                    className={category===item.menu_name?"active":""}
+                                    alt=""/>
+                                <p onClick={()=>{setCategory((prev)=>(prev === item.menu_name?"All":item.menu_name))}}>{item.menu_name}</p>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+
         </div>
     )
 }

@@ -1,0 +1,17 @@
+.food-display{
+    display: flex;
+    align-items: center;
+    margin: 3rem 0;
+    min-width: 100%;
+    animation: fadeIn 1s;
+}
+
+.food-display-list{
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(17rem,1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
+
