@@ -1,17 +1,18 @@
 .food-item{
     animation: fadeIn 1s;
     position: relative;
-    overflow: hidden; /* 隱藏超出圓角邊框的內容 */
+    overflow: hidden;
     border: 3px solid white;
     border-radius: 1.5rem;
     width: 100%;
 }
 
 .food-img{
-    max-height: 50%;
+    height: 46%;
 }
 
 .food-item .food-img{
+    object-fit: cover;
     width: 100%;
 }
 
