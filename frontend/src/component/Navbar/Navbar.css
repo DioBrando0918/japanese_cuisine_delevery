@@ -114,7 +114,7 @@ a, a:hover, a:focus, a:active {
     font-size: 1rem;
 }
 
-.active{
+.navbar .active{
     padding-bottom: 2px;
     border-bottom: 2px solid var(--link-color);
 }
