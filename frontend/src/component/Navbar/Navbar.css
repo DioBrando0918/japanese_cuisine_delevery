@@ -28,8 +28,8 @@
 }
 
 .logo span:last-child{
+    font-family: var(--ink-font-family);
     font-size: 1.8rem;
-    font-family: "Permanent Marker", cursive;
 }
 
 .navbar-menu{

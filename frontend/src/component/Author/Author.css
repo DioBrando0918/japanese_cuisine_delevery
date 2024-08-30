@@ -12,6 +12,6 @@
     color: white;
 }
 
-span{
+.author span{
     font-family: var(--english-font-family);
 }

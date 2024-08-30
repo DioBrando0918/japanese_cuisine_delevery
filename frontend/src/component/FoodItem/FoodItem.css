@@ -30,6 +30,7 @@
 }
 
 .item-desc{
+    font-size: max(1vw,16px);
     color: #e8e5e5;
 }
 
@@ -43,25 +44,39 @@
 }
 
 .food-item-counter{
+    min-width: 35%;
+    max-width: 45%;
     bottom: 10%;
-    padding: 5px;
+    padding: 10px;
     background: white;
     border-radius: 40px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: .5rem;
 }
 
+.food-item-counter img{
+    width: max(1vw,30px);
+}
+
 .food-item-counter p{
     font-family: var(--english-font-family);
+    margin-bottom: 0;
     color: black;
 }
 
 .food-operate{
-    width: 90%;
+    min-width: 90%;
     position: absolute;
-    bottom: 2%;
+    bottom: 4%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media  (min-width: 420px) and (max-width: 640px){
+    .item-desc{
+        font-size: 25px;
+    }
 }
