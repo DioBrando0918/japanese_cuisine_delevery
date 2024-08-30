@@ -58,11 +58,29 @@
 
 .header-content button{
     padding: 0.8vw 2.3vw;
-    font-size: max(1.2vw,13px);
+    font-size: max(1.3vw,10px);
     background-color: white;
     color: grey;
     font-weight: 500;
     border-radius: 50px;
     cursor: pointer;
     border: none;
+}
+
+@media (max-width: 1050px){
+    .header-content p{
+        font-size:  1.5vw;
+    }
+}
+
+@media (max-width: 750px){
+    .header-content p{
+        display: none;
+    }
+}
+
+@media (max-width: 500px){
+    .header-content {
+        gap: 1vh;
+    }
 }

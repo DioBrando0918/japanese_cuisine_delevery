@@ -20,7 +20,7 @@ const Header = () => {
                 </Link>
             </div>
 
-            <Carousel interval={3000} indicators={false} className="image-carousel">
+            <Carousel interval={3000} indicators={false}>
                 <Carousel.Item>
                     <div className='carousel-background first-slide'></div>
                 </Carousel.Item>

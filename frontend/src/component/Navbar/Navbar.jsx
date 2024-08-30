@@ -64,9 +64,6 @@ const Navbar = () => {
                     <span onClick={() => {setIsPhoneMenu((prev) => (!prev))}} className="material-symbols-outlined hamburger">menu</span>
                 </div>
             </div>
-
-
-
         </div>
     )
 }

@@ -35,5 +35,24 @@
     background-color: #a0a0a0;
 }
 
+@media (max-width: 1050px){
+    .restaurant-introduce{
+        align-items: center;
+        flex-direction: column;
+    }
 
+    .description{
+        width: 80%;
+    }
+}
+
+@media (max-width: 500px){
+    .description{
+        width: 100%;
+    }
+
+    .description p{
+        font-size: .9rem;
+    }
+}
 
