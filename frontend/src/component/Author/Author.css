@@ -5,7 +5,8 @@
     background: black;
 }
 
-p{
+.author p{
+    font-size: max(1vw,13px);
     margin: 0;
     padding: 5px;
     color: white;

@@ -6,6 +6,7 @@
     flex-direction: column;
     gap: 5px;
     align-items: center;
+    justify-content: center;
     padding: 10px;
 }
 
@@ -14,27 +15,28 @@
 }
 
 
-.head span,
-.head a{
-    font-size: 3rem;
+.footer-head span,
+.footer-head a{
+    font-size: max(2.5vw,25px);
 }
 
-.head span:first-child{
+.footer-head span:first-child{
     color: var(--logo-color);
 }
 
-.head span:last-child{
+.footer-head span:last-child{
     font-family: var(--ink-font-family);
     color: white;
 }
 
-.head a{
+.footer-head a{
     gap: 5px;
     display: flex;
     align-items: center;
 }
 
 .link{
+    margin-bottom: 0;
     list-style: none;
     display: flex;
     gap: 2rem;
@@ -43,6 +45,7 @@
 }
 
 .link li{
+    font-size: max(1vw,14px);
     cursor: pointer;
 }
 
@@ -51,32 +54,34 @@
     text-decoration: none;
 }
 
-.footer .app{
-    width: 10%;
+.footer .apps{
+    margin: 0;
+    width: max(3vw,120px);
     display: flex;
+    gap: 10px;
     justify-content: space-between;
 }
 
-.footer .app img{
+.footer .apps img{
     cursor: pointer;
-    width: 3rem;
+    width: max(2vw,35px);
  }
 
-
-
-.body{
+.footer-body{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.body p{
+.footer-body p{
+    font-size: max(1vw,14px);
     background: none;
 }
 
-.body hr{
-    width: 50vw;
+.footer-body hr{
+    width: max(50vw,350px);
     border: none;
     height: 1px;
     background-color: white;
 }
+

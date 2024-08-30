@@ -4,12 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .app-download p,
 .app-download span{
     font-weight: 500;
-    font-size: 2rem;
+    font-size: max(1.8vw,20px);
 }
 
 .app-download span{
@@ -17,6 +18,7 @@
 }
 
 .app-feature{
+    font-size: max(1.3vw,15px);
     font-weight: 500;
     display: flex;
     flex-direction: column;
@@ -31,8 +33,17 @@
 }
 
 .app-download-platform img {
+    width: max(13vw,120px);
     cursor: pointer;
     padding: 0;
     border: 2px solid white;
     border-radius: 14px;
+    transition: 0.5s;
+}
+
+.app-download-platform img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1050px) {
 }
