@@ -56,6 +56,10 @@
     gap: 23px;
 }
 
+.navbar-right a{
+    color: inherit;
+}
+
 .navbar-right span{
     cursor: pointer;
     font-size: 2rem;

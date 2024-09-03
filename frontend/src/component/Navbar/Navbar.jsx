@@ -53,7 +53,7 @@ const Navbar = ({showLogin,setShowLogin}) => {
                 <div className='navbar-right'>
                     <span className="material-symbols-outlined">search</span>
                     <div className='shopping-bag'>
-                        <span className="material-symbols-outlined">shopping_bag</span>
+                        <Link to='/cart'><span className="material-symbols-outlined">shopping_bag</span></Link>
                         <div
                             className={(Object.values(cartItems).every(value => value === 0) || Object.keys(cartItems).length === 0) ? "" : "dot"}></div>
                     </div>
