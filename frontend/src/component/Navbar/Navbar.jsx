@@ -1,16 +1,20 @@
 import React, {useContext, useEffect, useState} from 'react'
 import './Navbar.css'
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import {StoreContext} from "../../context/StoreContext.jsx";
+import button from "bootstrap/js/src/button.js";
 
-const Navbar = () => {
+const Navbar = ({showLogin,setShowLogin}) => {
 
-    const {menu,setMenu,cartItems} = useContext(StoreContext);
+    const {menu,setMenu,cartItems,setToken,token} = useContext(StoreContext);
     const [isPhoneMenu,setIsPhoneMenu] = useState(false);
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(isPhoneMenu)
-    }, [isPhoneMenu]);
+    const logout = ()=>{
+        localStorage.removeItem("token");
+        setToken("");
+        navigate("/");
+    }
 
     return (
         <div className='navbar'>
@@ -53,15 +57,22 @@ const Navbar = () => {
                         <div
                             className={(Object.values(cartItems).every(value => value === 0) || Object.keys(cartItems).length === 0) ? "" : "dot"}></div>
                     </div>
-                    <div className='nav-profile'>
-                        <span className="material-symbols-outlined">person</span>
-                        <ul className='nav-profile-dropdown'>
-                            <li><span className="material-symbols-outlined">work</span><span>訂單</span></li>
-                            <hr/>
-                            <li><span className="material-symbols-outlined">logout</span><span>登出</span></li>
-                        </ul>
-                    </div>
-                    <span onClick={() => {setIsPhoneMenu((prev) => (!prev))}} className="material-symbols-outlined hamburger">menu</span>
+                    {
+                        token
+                            ? <div className='nav-profile'>
+                                <span className="material-symbols-outlined">person</span>
+                                <ul className='nav-profile-dropdown'>
+                                    <li><span className="material-symbols-outlined">work</span><span>訂單</span></li>
+                                    <hr/>
+                                    <li onClick={logout}><span className="material-symbols-outlined">logout</span><span>登出</span></li>
+                                </ul>
+                            </div>
+                            :<span onClick={()=>{setShowLogin(true)}} className="material-symbols-outlined">login</span>
+                    }
+
+                    <span onClick={() => {
+                        setIsPhoneMenu((prev) => (!prev))
+                    }} className="material-symbols-outlined hamburger">menu</span>
                 </div>
             </div>
         </div>

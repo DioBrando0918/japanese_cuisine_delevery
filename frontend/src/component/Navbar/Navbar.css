@@ -1,13 +1,12 @@
 .navbar {
     position: relative;
-    overflow-x: hidden;
     width: 100%;
     background-color: white;
 }
 
 .content {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,6 +84,7 @@ a, a:hover, a:focus, a:active {
 }
 
 .nav-profile-dropdown{
+    right: 0;
     z-index: 1;
     width: 8rem;
     display: none;

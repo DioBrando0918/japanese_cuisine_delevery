@@ -22,6 +22,11 @@
     align-items: center;
     gap: 20px;
     text-align: center;
+    transition: .3s;
+}
+
+.menu-list-item:hover{
+    transform: scale(1.05);
 }
 
 .menu-list-item img {

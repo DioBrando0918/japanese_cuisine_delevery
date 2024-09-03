@@ -10,6 +10,7 @@ import line_icon from './line_icon.png'
 import add_icon_green from './add_icon_green.png'
 import add_icon_white from './add_icon_white.png'
 import remove_icon_red from './remove_icon_red.png'
+import cross_icon from './cross_icon.png'
 import menu_1 from './menu_1.jpeg'
 import menu_2 from './menu_2.jpeg'
 import menu_3 from './menu_3.jpeg'
@@ -60,7 +61,8 @@ const assets = {
     line_icon,
     add_icon_green,
     add_icon_white,
-    remove_icon_red
+    remove_icon_red,
+    cross_icon
 }
 
 const menu_list =[

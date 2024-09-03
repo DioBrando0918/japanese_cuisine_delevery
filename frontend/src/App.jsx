@@ -8,15 +8,20 @@ import Footer from "./component/Footer/Footer.jsx";
 import Author from "./component/Author/Author.jsx";
 import MenuSelect from "./component/MenuSelect/MenuSelect.jsx";
 import MenuIntroduce from "./pages/MenuIntroduce/MenuIntroduce.jsx";
+import LoginPopup from "./component/LoginPopup/LoginPopup.jsx";
 
 
 function App() {
+
     const [count, setCount] = useState(0)
+    const [showLogin,setShowLogin] = useState(false);
 
     return (
         <>
-            <Navbar></Navbar>
+            {showLogin?<LoginPopup setShowLogin={setShowLogin}></LoginPopup>:<></>}
+            <Navbar showLogin= {showLogin} setShowLogin={setShowLogin}></Navbar>
             <div className='app'>
+
                 <Routes>
                     <Route path='/' element={<Home/>}></Route>
                     <Route path='/menu-introduce' element={<MenuIntroduce/>}></Route>
