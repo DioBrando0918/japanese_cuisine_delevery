@@ -58,7 +58,7 @@ const getCart = async (req,res) =>{
 
         res.json({
             code:200,
-            msg:"已從購物車移除",
+            msg:"取得購物車數據成功",
             data: {cartData}
         })
     }catch (error){
