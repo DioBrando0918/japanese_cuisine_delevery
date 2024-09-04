@@ -1521,7 +1521,7 @@ var Dropdown = function ($$$1) {
 
       if (showEvent.isDefaultPrevented()) {
         return;
-      } // Disable totally Popper.js for Dropdown in Navbar
+      } // Disable totally Popper.js for Dropdown in Sidebar
 
 
       if (!this._inNavbar) {

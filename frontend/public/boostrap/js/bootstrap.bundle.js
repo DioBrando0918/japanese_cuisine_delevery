@@ -1994,7 +1994,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
     }
   }
 
-  // Add paddings
+  // AddItem paddings
   boundaries.left += padding;
   boundaries.top += padding;
   boundaries.right -= padding;
@@ -2132,7 +2132,7 @@ function getPopperOffsets(popper, referenceOffsets, placement) {
   // Get popper node sizes
   var popperRect = getOuterSizes(popper);
 
-  // Add position, width and height to our offsets object
+  // AddItem position, width and height to our offsets object
   var popperOffsets = {
     width: popperRect.width,
     height: popperRect.height
@@ -2218,7 +2218,7 @@ function runModifiers(modifiers, data, ends) {
     }
     var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
     if (modifier.enabled && isFunction(fn)) {
-      // Add properties to offsets to make them a complete clientRect object
+      // AddItem properties to offsets to make them a complete clientRect object
       // we do this before each modifier to make sure the previous one doesn't
       // mess with these values
       data.offsets.popper = getClientRect(data.offsets.popper);
@@ -3955,7 +3955,7 @@ var Dropdown = function ($$$1) {
 
       if (showEvent.isDefaultPrevented()) {
         return;
-      } // Disable totally Popper.js for Dropdown in Navbar
+      } // Disable totally Popper.js for Dropdown in Sidebar
 
 
       if (!this._inNavbar) {

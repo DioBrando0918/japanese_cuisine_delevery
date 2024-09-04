@@ -1,0 +1,73 @@
+.list-item{
+    background-color: white;
+    display: flex;
+    width: 80%;
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
+
+}
+
+.item-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-title th{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-item {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word;
+}
+
+.table-item img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.table-item p {
+    margin: 0;
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+    color: #f44336;
+    font-size: 24px;
+}
+
+.photo-col{
+    width: 15%;
+    min-width: 80px;
+}
+
+.name-col,
+.category-col,
+.price-col,
+.action-col{
+    width: 10%;
+    min-width: 40px;
+}
+
+.description-col {
+    width: 25%;
+    min-width: 180px;
+}
+
+@media (max-width: 600px) {
+    .table-item img{
+        width: 80px;
+    }
+}
+
