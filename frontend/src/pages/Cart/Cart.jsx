@@ -1,10 +1,9 @@
 import React, {useContext} from 'react'
 import './Cart.css'
-import {food_list} from "../../assets/assets.js";
 import {StoreContext} from "../../context/StoreContext.jsx";
 
 const Cart = () => {
-    const {cartItems} = useContext(StoreContext)
+    const {foodList,cartItems} = useContext(StoreContext)
 
     return (
         <div className='cart'>
@@ -15,15 +14,17 @@ const Cart = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>商品資料</th>
+                            <th>商品照片</th>
+                            <th>商品名稱</th>
                             <th>單件價格</th>
                             <th>數量</th>
                             <th>小計</th>
+                            <th>動作</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            food_list.map((item,index)=>{
+                            foodList.map((item,index)=>{
                                 if (cartItems[item._id]>0){
                                     return (
                                         <div className='cart-item'>
