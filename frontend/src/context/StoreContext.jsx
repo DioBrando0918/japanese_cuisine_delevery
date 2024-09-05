@@ -1,15 +1,17 @@
 import {createContext, useEffect, useState} from "react";
 import axios from "axios";
+import {useSnackbar} from "notistack";
 
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props)=>{
+    const { enqueueSnackbar } = useSnackbar();
     const url = import.meta.env.VITE_API_URL;
     const [cartItems,setCartItems] = useState({});
     const [token,setToken] = useState("");
     const [menu, setMenu] = useState("home")
-    const addToCart = async (itemId)=>{
+    const addToCart =  (itemId)=>{
         if (!cartItems[itemId]){
             setCartItems((prev)=>({...prev,[itemId]:1}));
         }else{
@@ -17,15 +19,25 @@ const StoreContextProvider = (props)=>{
         }
 
         if (token){
-            await axios.post(`${url}/api/cart/add`,{itemId},{headers:{token}})
+            axios.post(`${url}/api/cart/add`,{itemId},{headers:{token}}).then((response)=>{
+
+            }).catch((error)=>{
+                enqueueSnackbar('加入購物車失敗', { variant: 'error' });
+                console.log(`${error.response.data.msg}`);
+            })
         }
     }
 
-    const removeFromCart = async (itemId)=>{
+    const removeFromCart = (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}));
 
         if (token){
-            await axios.post(`${url}/api/cart/remove`,{itemId},{headers:{token}})
+             axios.post(`${url}/api/cart/remove`,{itemId},{headers:{token}}).then(response=>{
+
+             }).catch(error=>{
+                 enqueueSnackbar('移除失敗', { variant: 'error' });
+                 console.log(`${error.response.data.msg}`);
+             })
         }
     }
 

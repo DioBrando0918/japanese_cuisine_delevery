@@ -6,26 +6,23 @@ const ListItem = ({url}) => {
     const { enqueueSnackbar } = useSnackbar();
     const [data,setData] = useState([]);
 
-    const removeItem = async (_id)=>{
-        const response = await axios.post(`${url}/api/food/remove`,{_id})
-        if (response.data.code === 200){
-            console.log('aa')
+    const removeItem = (_id)=>{
+        axios.post(`${url}/api/food/remove`,{_id}).then(response=>{
             enqueueSnackbar('移除成功', { variant: 'success' });
-            await fetchItem();
-        }else{
-            console.log(response.data.msg)
+            fetchItem();
+        }).catch(error=>{
+            console.log(error.response.data.msg);
             enqueueSnackbar('移除失敗', { variant: 'error' });
-        }
+        })
     }
 
-    const fetchItem = async ()=>{
-        const response = await axios.get(`${url}/api/food/list`);
-        if (response.data.code === 200){
-            setData(response.data.data.foods)
-            console.log(response.data.data.foods)
-        }else{
+    const fetchItem =  ()=>{
+        axios.get(`${url}/api/food/list`).then((response)=>{
+            setData(response.data.foods)
+        }).catch((error)=>{
+            console.log(error.response.data.msg);
             enqueueSnackbar('獲取資料失敗', { variant: 'error' });
-        }
+        });
     }
 
     useEffect(() => {

@@ -10,6 +10,7 @@ import MenuSelect from "./component/MenuSelect/MenuSelect.jsx";
 import MenuIntroduce from "./pages/MenuIntroduce/MenuIntroduce.jsx";
 import LoginPopup from "./component/LoginPopup/LoginPopup.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
+import {SnackbarProvider} from "notistack";
 
 
 function App() {
@@ -19,18 +20,23 @@ function App() {
 
     return (
         <>
-            {showLogin?<LoginPopup setShowLogin={setShowLogin}></LoginPopup>:<></>}
-            <Navbar showLogin= {showLogin} setShowLogin={setShowLogin}></Navbar>
-            <div className='app'>
+            <SnackbarProvider maxSnack={3} anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right'
+            }}>
+                {showLogin?<LoginPopup setShowLogin={setShowLogin}></LoginPopup>:<></>}
+                <Navbar showLogin= {showLogin} setShowLogin={setShowLogin}></Navbar>
+                <div className='app'>
 
-                <Routes>
-                    <Route path='/' element={<Home/>}></Route>
-                    <Route path='/menu-introduce' element={<MenuIntroduce/>}></Route>
-                    <Route path='/cart' element={<Cart/>}></Route>
-                </Routes>
-            </div>
-            <Footer></Footer>
-            <Author></Author>
+                    <Routes>
+                        <Route path='/' element={<Home/>}></Route>
+                        <Route path='/menu-introduce' element={<MenuIntroduce/>}></Route>
+                        <Route path='/cart' element={<Cart/>}></Route>
+                    </Routes>
+                </div>
+                <Footer></Footer>
+                <Author></Author>
+            </SnackbarProvider>
         </>
     )
 }

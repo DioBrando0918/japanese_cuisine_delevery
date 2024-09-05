@@ -8,34 +8,25 @@ const login = async (req,res)=>{
     try{
         const user = await userModel.findOne({email});
         if (!user){
-            return res.json({
-                code:500,
-                msg:"會員不存在",
-                data:null
+            return res.status(404).json({
+                msg:"會員不存在"
             })
         }
         const isMatch = await bcrypt.compare(password,user.password);
         if (!isMatch){
-            return res.json({
-                code:500,
-                msg:"密碼錯誤",
-                data:null
+            return res.status(401).json({
+                msg:"密碼錯誤"
             })
         }
 
         const token = createToken(user._id);
-        res.json({
-            code:200,
+        res.status(200).json({
             msg:'登入成功',
-            data:{
-                token
-            }
+            token
         })
     }catch (error){
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 }
@@ -49,26 +40,20 @@ const register = async (req,res)=>{
     try {
         const exists = await userModel.findOne({email});
         if (exists){
-            return res.json({
-                code:500,
-                msg:'用戶已存在',
-                data:null
+            return res.status(409).json({
+                msg:'用戶已存在'
             })
         }
 
         if (!validator.isEmail(email)){
-            return res.json({
-                code:500,
-                msg:'請輸入有效電子信箱',
-                data:null
+            return res.status(400).json({
+                msg:'請輸入有效電子信箱'
             })
         }
 
         if (password.length < 8){
-            return res.json({
-                code:500,
-                msg:"密碼長度不足，請輸入至少8個字符",
-                data:null
+            return res.status(400).json({
+                msg:"密碼長度不足，請輸入至少8個字符"
             })
         }
 
@@ -83,18 +68,13 @@ const register = async (req,res)=>{
         });
 
         const user = newUser.save();
-        res.json({
-            code:200,
+        res.status(200).json({
             msg:'註冊成功',
-            data:{
-                token:createToken(user._id)
-            }
+            token:createToken(user._id)
         })
     }catch (error){
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 }

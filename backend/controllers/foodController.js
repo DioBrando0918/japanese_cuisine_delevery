@@ -13,17 +13,12 @@ const addFood = async (req,res)=>{
 
     try {
         await food.save();
-        res.json({
-            code:200,
-            msg:"新增成功",
-            data:null
+        res.status(200).json({
+            msg:"新增成功"
         })
     }catch (error){
-        console.log(error);
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 }
@@ -31,17 +26,14 @@ const addFood = async (req,res)=>{
 const listFood = async(req,res)=>{
     try {
         const foods = await foodModel.find({});
-        res.json({
-            code:200,
+        res.status(200).json({
             msg:"查詢成功",
-            data: {foods}
+            foods
         })
     }catch (error){
         console.log(error);
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 }
@@ -51,17 +43,12 @@ const removeFood = async (req,res)=>{
         const food = await foodModel.findById(req.body._id);
         fs.unlink(`uploads/${food.image}`,()=>{});
         await foodModel.findByIdAndDelete(req.body._id);
-        res.json({
-            code:200,
-            msg:"移除成功",
-            data:null
+        res.status(200).json({
+            msg:"移除成功"
         });
     }catch (error){
-        console.log(error);
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         });
     }
 }

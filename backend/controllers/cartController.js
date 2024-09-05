@@ -12,16 +12,12 @@ const addToCart = async (req,res)=>{
         }
 
         await userModel.findByIdAndUpdate(req.body.userId,{cartData});
-        res.json({
-            code:200,
-            msg:"已加入購物車",
-            data:null
+        res.status(200).json({
+            msg:"已加入購物車"
         })
     }catch (error){
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 
@@ -37,16 +33,12 @@ const removeFromCart = async (req,res)=>{
         }
 
         await userModel.findByIdAndUpdate(req.body.userId,{cartData});
-        res.json({
-            code:200,
-            msg:"已從購物車移除",
-            data:null
+        res.status(200).json({
+            msg:"已從購物車移除"
         })
     }catch (error){
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 }
@@ -56,16 +48,13 @@ const getCart = async (req,res) =>{
         const user = await userModel.findById(req.body.userId);
         let cartData = user.cartData;
 
-        res.json({
-            code:200,
+        res.status(200).json({
             msg:"取得購物車數據成功",
-            data: {cartData}
+            cartData
         })
     }catch (error){
-        res.json({
-            code:500,
-            msg:`${error}`,
-            data:null
+        res.status(500).json({
+            msg:`${error}`
         })
     }
 }

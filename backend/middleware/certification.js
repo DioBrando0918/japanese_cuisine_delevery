@@ -3,10 +3,8 @@ import jwt from "jsonwebtoken";
 const certification = async (req,res,next) =>{
     const {token} = req.headers;
     if (!token){
-        return res.json({
-            code:500,
-            msg:"不是授權的用戶,請重新登入",
-            data:null
+        return res.status(401).json({
+            msg:"不是授權的用戶,請重新登入"
         })
     }else{
         try{
@@ -14,10 +12,8 @@ const certification = async (req,res,next) =>{
             req.body.userId = token_decode._id
             next()
         }catch (error){
-            res.json({
-                code:500,
-                msg:`${error}`,
-                data:null
+            res.status(500).json({
+                msg:`${error}`
             })
         }
     }

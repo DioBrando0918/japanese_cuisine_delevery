@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.login-popup-title .img {
+.login-popup-title span {
     width: max(1vw,16px);
     cursor: pointer;
 }

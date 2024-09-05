@@ -20,7 +20,7 @@ const AddItem = ({url}) => {
         setData(data=>({...data,[name]:value}));
     }
 
-    const onSubmit = async (event)=>{
+    const onSubmit = (event)=>{
         event.preventDefault();
         const formData = new FormData();
         formData.append("name",data.name);
@@ -28,9 +28,7 @@ const AddItem = ({url}) => {
         formData.append("price",Number(data.price));
         formData.append("category",data.category);
         formData.append("image",image);
-        const response = await axios.post(`${url}/api/food/add`,formData);
-        console.log(response.data)
-        if (response.data.code === 200){
+        axios.post(`${url}/api/food/add`,formData).then(response=>{
             setData({
                 name: "",
                 description: "",
@@ -39,9 +37,10 @@ const AddItem = ({url}) => {
             })
             setImage(false);
             enqueueSnackbar('新增成功', { variant: 'success' });
-        }else{
+        }).catch(error=>{
+            console.log(error.response.data.msg);
             enqueueSnackbar('新增失敗', { variant: 'error' });
-        }
+        });
     }
 
     return (

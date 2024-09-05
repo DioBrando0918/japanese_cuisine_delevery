@@ -4,8 +4,10 @@ import {assets} from "../../assets/assets.js";
 import {StoreContext} from "../../context/StoreContext.jsx";
 import axios from "axios";
 import {isPropWrapperFunction} from "eslint-plugin-react/lib/util/propWrapper.js";
+import {useSnackbar} from "notistack";
 
 const LoginPopup = ({setShowLogin}) => {
+    const { enqueueSnackbar } = useSnackbar();
     const {url,setToken} = useContext(StoreContext);
     const [currState,setCurrState] = useState("登入");
 
@@ -26,13 +28,13 @@ const LoginPopup = ({setShowLogin}) => {
         }))
     }
 
-    const onLogin = async (event)=>{
+    const onLogin = (event)=>{
         event.preventDefault();
         let newUrl = url;
 
         if (currState === '註冊'){
             if (data.password !== data.confirmPassword){
-                alert("兩次輸入的密碼不相符。");
+                enqueueSnackbar(`兩次輸入的密碼不相符。`, { variant: 'error' });
                 return;
             }else{
                 newUrl += '/api/user/register';
@@ -40,14 +42,15 @@ const LoginPopup = ({setShowLogin}) => {
         }else{
             newUrl += '/api/user/login';
         }
-        const response = await axios.post(newUrl,data);
-        if (response.data.code === 200){
-            setToken(response.data.data.token);
-            localStorage.setItem("token",response.data.data.token);
+         axios.post(newUrl,data).then((response)=>{
+            setToken(response.data.token);
+            localStorage.setItem("token",response.data.token);
+            enqueueSnackbar(`${response.data.msg}`, { variant: 'success' });
             setShowLogin(false);
-        }
-        alert(`${response.data.msg}`);
-
+        }).catch((error)=>{
+             enqueueSnackbar(`操作失敗`, { variant: 'error' });
+             console.log(error.response.data.msg);
+        });
     }
 
     return (
@@ -56,11 +59,11 @@ const LoginPopup = ({setShowLogin}) => {
 
                 <div className='login-popup-title'>
                     <h2>{currState}</h2>
-                    <img onClick={()=>{setShowLogin(false)}} src={assets.cross_icon} alt=""/>
+                    <span onClick={()=>{setShowLogin(false)}} className="material-symbols-outlined">close</span>
                 </div>
 
                 <div className='login-popup-input'>
-                    <input type="email" onChange={onChangeHandler} value={data.email} name='email' placeholder='電子信箱' required/>
+                <input type="email" onChange={onChangeHandler} value={data.email} name='email' placeholder='電子信箱' required/>
                     <div className='password-block'>
                         <input type="password" onChange={onChangeHandler} value={data.password} name='password' placeholder='密碼' required/>
                         <p className={(data.password !== '' && data.password.length < 8) ? "length-insufficient" : ''}>密碼長度不足，請輸入至少8個字符。</p>
