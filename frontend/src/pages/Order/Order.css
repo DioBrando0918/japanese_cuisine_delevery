@@ -8,6 +8,7 @@
     overflow-x: auto;
     overflow-y: auto;
     font-size: max(1vw,14px);
+    padding: 20px 0;
 }
 
 .order-table{
