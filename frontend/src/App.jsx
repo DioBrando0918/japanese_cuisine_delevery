@@ -11,6 +11,8 @@ import MenuIntroduce from "./pages/MenuIntroduce/MenuIntroduce.jsx";
 import LoginPopup from "./component/LoginPopup/LoginPopup.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import {SnackbarProvider} from "notistack";
+import Order from "./pages/Order/Order.jsx";
+import EmptyCart from "./pages/EmptyCart/EmptyCart.jsx";
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
                         <Route path='/' element={<Home/>}></Route>
                         <Route path='/menu-introduce' element={<MenuIntroduce/>}></Route>
                         <Route path='/cart' element={<Cart/>}></Route>
+                        <Route path='/empty-cart' element={<EmptyCart/>}></Route>
+                        <Route path='/order' element={<Order/>}></Route>
                     </Routes>
                 </div>
                 <Footer></Footer>

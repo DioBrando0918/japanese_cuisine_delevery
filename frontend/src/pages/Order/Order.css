@@ -1,0 +1,119 @@
+.order{
+    margin: 20px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    overflow-x: auto;
+    overflow-y: auto;
+    font-size: max(1vw,14px);
+}
+
+.order-table{
+    margin: 20px;
+    width: 40%;
+}
+
+.photo-col{
+    width: 30%;
+    min-width: 80px;
+}
+
+.name-col,
+.total-price-col,
+.number-col{
+    text-align: center;
+    width: 30%;
+    min-width: 100px;
+}
+
+.order-table img{
+    max-width: 90px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.order-table td{
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word;
+    font-size: max(1vw,16px);
+}
+
+.order-table th{
+    padding: 10px;
+    background-color: #eff0f1;
+}
+
+.order-info{
+    min-height: 100%;
+    margin: 20px;
+    width: 35%;
+}
+
+.order-info p{
+    color: black;
+}
+
+.order-info button{
+    background-color: black;
+    color: white;
+    padding: 7px;
+    width: 60%;
+    border: none;
+    cursor:pointer;
+}
+
+.order-title{
+    padding: 10px;
+    background-color: #eff0f1;
+    margin: 10px 0;
+}
+
+.order-title h4{
+    font-weight: 500;
+    margin: 0;
+}
+
+.order-body .multi-field{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-body .multi-field:nth-child(4) p{
+    font-weight: bold;
+}
+
+@media (max-width: 750px){
+    .order{
+        flex-direction: column;
+    }
+
+    .order-table{
+        margin: 10px auto 0 auto;
+    }
+
+    .order-table img{
+        max-width: 63px;
+    }
+
+    .order-info{
+        margin: 0 auto 10px auto;
+    }
+
+    .name-col,
+    .total-price-col{
+        width: 18%;
+        min-width: 40px;
+    }
+
+    .order-table ,
+    .order-info{
+        width: 95%;
+    }
+
+    .order-info button{
+        width: 100%;
+    }
+}

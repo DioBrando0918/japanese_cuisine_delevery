@@ -12,6 +12,12 @@ const StoreContextProvider = (props)=>{
     const [token,setToken] = useState("");
     const [menu, setMenu] = useState("home")
     const [foodList,setFoodList] = useState([])
+    const [shippingInfo,setShippingInfo] = useState({});
+    const [address,setAddress] = useState({
+        countryAndCity:"南投縣",
+        position:""
+    })
+
     const addToCart =  (itemId)=>{
         if (!cartItems[itemId]){
             setCartItems((prev)=>({...prev,[itemId]:1}));
@@ -24,6 +30,17 @@ const StoreContextProvider = (props)=>{
 
             }).catch((error)=>{
                 enqueueSnackbar('加入購物車失敗', { variant: 'error' });
+                console.log(`${error.response.data.msg}`);
+            })
+        }
+    }
+
+    const deleteItem = (itemId) =>{
+        if (token){
+            axios.post(`${url}/api/cart/delete`,{itemId},{headers:{token}}).then(response=>{
+                setCartItems((prev)=>({...prev,[itemId]:0}));
+            }).catch(error=>{
+                enqueueSnackbar('刪除失敗', { variant: 'error' });
                 console.log(`${error.response.data.msg}`);
             })
         }
@@ -43,13 +60,23 @@ const StoreContextProvider = (props)=>{
     }
 
     const fetchFoodList =  ()=>{
-        console.log('aa')
         axios.get(`${url}/api/food/list`).then((response)=>{
             setFoodList(response.data.foods)
         }).catch((error)=>{
             console.log(error.response.data.msg);
             enqueueSnackbar('獲取菜品資料失敗', { variant: 'error' });
         });
+    }
+
+    const getTotalPrice = ()=>{
+        let result = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0){
+                let itemInfo = foodList.find((food)=>(food._id===item));
+                result += itemInfo.price * cartItems[item]
+            }
+        }
+        return result;
     }
 
     const loadCartData =  (token)=>{
@@ -83,10 +110,16 @@ const StoreContextProvider = (props)=>{
         setMenu,
         addToCart,
         removeFromCart,
+        deleteItem,
+        getTotalPrice,
+        address,
+        setAddress,
         url,
         token,
         setToken,
-        foodList
+        foodList,
+        shippingInfo,
+        setShippingInfo
     }
 
     return (<StoreContext.Provider value={contextValue}>
