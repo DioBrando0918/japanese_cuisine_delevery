@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import './Cart.css'
 import {StoreContext} from "../../context/StoreContext.jsx";
-import Map from '../../component/Map/Map.jsx'
 import axios from "axios";
 import {useSnackbar} from "notistack";
 import {useNavigate} from "react-router-dom";
