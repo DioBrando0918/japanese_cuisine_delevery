@@ -1,10 +1,50 @@
 import React, {useContext} from 'react'
 import './Order.css'
 import {StoreContext} from "../../context/StoreContext.jsx";
+import axios from "axios";
+import {useSnackbar} from "notistack";
 
 const Order = () => {
 
     const {cartItems,foodList,url,shippingInfo,token,getTotalPrice,address} = useContext(StoreContext);
+    const { enqueueSnackbar } = useSnackbar();
+
+    const checkout = ()=>{
+        let orderItems = [];
+        foodList.map((item,index)=>{
+            if (cartItems[item._id] > 0){
+                let itemInfo = item;
+                itemInfo['quantity'] = cartItems[item._id];
+                orderItems.push(itemInfo);
+            }
+        })
+
+        let orderData = {
+            address,
+            shippingInfo,
+            orderItems
+        }
+
+        axios.post(`${url}/api/order/placeOrder`,orderData,{headers:{token}}).then(response=>{
+
+            const formHtml = response.data;
+
+            // 创建一个新的 div 元素来插入表单
+            const formContainer = document.createElement('div');
+            formContainer.innerHTML = formHtml;
+
+            // 将表单插入到页面中
+            document.body.appendChild(formContainer);
+
+            // 提交表单
+            formContainer.querySelector('form').submit();
+
+
+        }).catch(error=>{
+            console.log(error.response.data.msg);
+            enqueueSnackbar('結帳失敗', { variant: 'error' });
+        })
+    }
 
     return (
         <div className='order'>
@@ -64,7 +104,7 @@ const Order = () => {
 
                     <div className='multi-field'>
                         <div></div>
-                        <button>前往結帳</button>
+                        <button onClick={checkout}>前往結帳</button>
                     </div>
 
                 </div>

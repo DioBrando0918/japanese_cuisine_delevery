@@ -8,6 +8,7 @@ import userModel from "./models/userModel.js";
 import userRouter from "./routers/userRouter.js";
 import cartRouter from "./routers/cartRouter.js";
 import foodRouter from "./routers/foodRouter.js";
+import orderRouter from "./routers/orderRouter.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -27,6 +28,7 @@ app.set('view engine', 'ejs');
 app.use('/api/user',userRouter);
 app.use('/api/cart',cartRouter);
 app.use('/api/food',foodRouter);
+app.use('/api/order',orderRouter);
 app.use("/images",express.static('uploads'))
 
 app.get('/',(req, res)=>{

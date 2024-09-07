@@ -76,6 +76,7 @@ const StoreContextProvider = (props)=>{
                 result += itemInfo.price * cartItems[item]
             }
         }
+        result += Number(shippingInfo.price);
         return result;
     }
 
