@@ -5,7 +5,7 @@ import axios from "axios";
 import {useSnackbar} from "notistack";
 import {useNavigate} from "react-router-dom";
 
-const Cart = () => {
+const Cart = ({setShowLogin}) => {
     const {token,url,foodList,cartItems,deleteItem,removeFromCart,addToCart,setShippingInfo,address,setAddress} = useContext(StoreContext)
     const { enqueueSnackbar } = useSnackbar();
     const navigate = useNavigate();
@@ -19,18 +19,24 @@ const Cart = () => {
 
     const getShippingInfo = (event)=>{
         event.preventDefault();
-        axios.post(`${url}/api/cart/shippingInfo`,{address},{headers:{token}}).then(response=>{
-            setShippingInfo(response.data.shippingInfo);
-            navigate('/order')
-        }).catch(error=>{
-            console.log(error.response.data.msg);
-            if (error.response.status === 422){
-                enqueueSnackbar(`${error.response.data.msg}`, { variant: 'error' });
-            }
-            else{
-                enqueueSnackbar('獲取運費失敗', { variant: 'error' });
-            }
-        })
+        if (!token){
+            setShowLogin(true);
+        }
+        else{
+            axios.post(`${url}/api/cart/shippingInfo`,{address},{headers:{token}}).then(response=>{
+                console.log('aa')
+                setShippingInfo(response.data.shippingInfo);
+                navigate('/order')
+            }).catch(error=>{
+                console.log(error.response.data.msg);
+                if (error.response.status === 422){
+                    enqueueSnackbar(`${error.response.data.msg}`, { variant: 'error' });
+                }
+                else{
+                    enqueueSnackbar('獲取運費失敗', { variant: 'error' });
+                }
+            })
+        }
     }
 
     return (

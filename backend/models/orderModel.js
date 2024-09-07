@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema({
     totalPrice:{type:Number,required:true},
     address:{type:String,required:true},
     status:{type:String,default:'Food processing'},
-    create_time:{type:Date,default:moment().format('yyyy-MM-DD').toString()},
+    create_time:{type:String,default:moment().format('yyyy-MM-DD HH:mm:ss').toString()},
     payment:{type:Boolean,default:false}
 });
 
