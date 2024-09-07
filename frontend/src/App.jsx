@@ -13,6 +13,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import {SnackbarProvider} from "notistack";
 import Order from "./pages/Order/Order.jsx";
 import EmptyCart from "./pages/EmptyCart/EmptyCart.jsx";
+import OrderResult from "./pages/OrderResult/OrderResult.jsx";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                         <Route path='/cart' element={<Cart setShowLogin={setShowLogin} />}></Route>
                         <Route path='/empty-cart' element={<EmptyCart/>}></Route>
                         <Route path='/order' element={<Order/>}></Route>
+                        <Route path='/orderResult' element={<OrderResult/>}></Route>
                     </Routes>
                 </div>
                 <Footer></Footer>
