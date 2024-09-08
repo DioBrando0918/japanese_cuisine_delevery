@@ -67,7 +67,7 @@ const register = async (req,res)=>{
             phoneNumber,
         });
 
-        const user = newUser.save();
+        const user = await newUser.save();
         res.status(200).json({
             msg:'註冊成功',
             token:createToken(user._id)
