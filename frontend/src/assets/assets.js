@@ -48,6 +48,7 @@ import food_28 from './food_28.jpeg'
 import food_29 from './food_29.jpeg'
 import food_30 from './food_30.jpeg'
 import food_31 from './food_31.jpeg'
+import success_img from './success.png'
 
 const assets = {
     cooking_img,
@@ -62,7 +63,8 @@ const assets = {
     add_icon_green,
     add_icon_white,
     remove_icon_red,
-    cross_icon
+    cross_icon,
+    success_img
 }
 
 const menu_list =[

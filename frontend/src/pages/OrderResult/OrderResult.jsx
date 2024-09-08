@@ -4,23 +4,31 @@ import {useSearchParams} from "react-router-dom";
 import {StoreContext} from "../../context/StoreContext.jsx";
 import axios from "axios";
 import {assets} from "../../assets/assets.js";
+import success_img from "../../assets/success.png";
 
 const OrderResult = () => {
 
     const [result,setResult] = useState("");
-    const [data,setData] = useState({});
+    const [data,setData] = useState({
+        orderNo:"",
+        create_time:"",
+        totalPrice:""
+    });
     const [searchParams,setSearchParams] = useSearchParams();
     const merchantTradeNo = searchParams.get("merchantTradeNo");
     const {url} = useContext(StoreContext);
 
-    const getOrderResult = async ()=>{
-        const response = await axios.post(`${url}/api/order/result`,{merchantTradeNo});
-        if (response.data.success){
+    const getOrderResult = ()=>{
+        const response = axios.post(`${url}/api/order/result`,{merchantTradeNo}).then(response=>{
             setResult("success");
-            setData(response.data.data);
-        }else{
+            setData({
+                orderNo:response.data.orderNo,
+                create_time:response.data.create_time,
+                totalPrice:response.data.totalPrice
+            });
+        }).catch(error=>{
             setResult("fail");
-        }
+        });
     }
 
     useEffect(() => {
@@ -38,21 +46,21 @@ const OrderResult = () => {
                         <div className='spinner'></div>
                         :result === "success"
                             ? <div className='result-message'>
-                                <img src={assets.success} alt=""/>
+                                <img src={assets.success_img} alt=""/>
                                 <h1 className='success'>Payment successful</h1>
                                 <p className='title'>Your meal will arrive as soon as possible</p>
                                 <div className="payment-detail">
                                     <div className="line-info">
                                         <p className='title'>Date</p>
-                                        <p>{data.date}</p>
+                                        <p>{data.create_time}</p>
                                     </div>
                                     <div className="line-info">
                                         <p className='title'>Merchant Trade No</p>
-                                        <p>{data.merchantTradeNo}</p>
+                                        <p>{data.orderNo}</p>
                                     </div>
                                     <div className="line-info">
                                         <p className='title'>amount</p>
-                                        <p>${data.amount}</p>
+                                        <p>${data.totalPrice}</p>
                                     </div>
                                     <div className="line-info"></div>
                                 </div>
