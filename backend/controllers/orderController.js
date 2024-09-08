@@ -31,6 +31,7 @@ const placeOrder = async (req,res)=>{
     }
 
     let totalPrice = 0;
+    let merchandise = []
     req.body.orderItems.map((item)=>{
         totalPrice+=item.price*item.quantity;
         if (!baseParam.ItemName){
@@ -38,6 +39,7 @@ const placeOrder = async (req,res)=>{
         }else{
             baseParam.ItemName += `#${item.name}`
         }
+        merchandise.push(item.name)
     })
     baseParam.TotalAmount = String(totalPrice+req.body.shippingInfo.price);
 
@@ -47,7 +49,7 @@ const placeOrder = async (req,res)=>{
         const newOrder = new OrderModel({
             orderNo:uuid,
             userId:req.body.userId,
-            merchandise:baseParam.ItemName,
+            merchandise:merchandise,
             totalPrice:baseParam.TotalAmount,
             address:req.body.address.countryAndCity + req.body.address.position,
         });
@@ -71,6 +73,11 @@ const verifyOrder= async (req,res)=>{
 
     const create = new ECPAY(options);
     const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
+
+    await orderModel.findOneAndUpdate({orderNo:data.MerchantTradeNo},{
+        paymentType:data.PaymentType,
+        paymentTime:data.PaymentDate,
+    })
 
     if (checkValue === CheckMacValue){
         if (data.RtnCode === "1"){
