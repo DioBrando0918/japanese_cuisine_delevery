@@ -1,11 +1,64 @@
-.result{
-    min-height: 50vh;
+.order-result{
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    height: max(70vh,600px);
     align-items: center;
 }
 
-.result .spinner{
+.result-info{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    margin: auto;
+    width: max(35%,400px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-info img{
+    width: max(2.5vw,40px);
+}
+
+.result-info .success-message,
+.result-info .fail-message{
+    width: 70%;
+}
+
+.result-info p{
+    margin-bottom: 20px;
+    font-size:max(1vw,16px);
+    color: black;
+}
+
+.result-info .title-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.result-info .multi-field{
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-info .shopping{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+}
+
+.shopping a{
+    color: inherit;
+}
+
+.order-result .spinner{
+    margin: auto;
     width: 100px;
     height: 100px;
     place-self: center;
@@ -15,59 +68,6 @@
     animation: rotate .5s infinite;
 }
 
-.result-message{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    min-width: 20vw;
-    height: 450px;
-    place-self: center;
-}
-
-.result-message img{
-    min-height: 60px;
-}
-
-.success{
-    color: #2caf60;
-}
-
-.fail{
-    color: #e86060;
-}
-
-.payment-detail{
-    padding: 2rem;
-    border: 1px solid #b7b2b2;
-    border-radius: 1rem;
-    margin: 2.5rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.title{
-    color: grey;
-}
-
-.line-info{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 120px;
-}
-
-.continue{
-    margin-top: 1.5rem;
-    width: max(10vw,150px);
-    padding: 12px 5px;
-    background-color: black;
-    border: none;
-    color:white;
-}
-
 @keyframes rotate {
     100%{
         transform: rotate(360deg);
@@ -75,11 +75,19 @@
 }
 
 @media (max-width: 500px) {
-    .payment-detail{
-        padding: 1rem;
+    .result-info{
+        width: 100%;
     }
 
-    .line-info{
-        gap: 60px;
+    .result-info .success-message,
+    .result-info .fail-message{
+        width: 100%;
     }
 }
+
+@media (max-width: 500px){
+    .result-info p{
+        font-size: 14px;
+    }
+}
+

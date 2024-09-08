@@ -35,11 +35,11 @@ const placeOrder = async (req,res)=>{
     req.body.orderItems.map((item)=>{
         totalPrice+=item.price*item.quantity;
         if (!baseParam.ItemName){
-            baseParam.ItemName = item.name;
+            baseParam.ItemName = item.name+" x "+`${item.quantity}`;
         }else{
             baseParam.ItemName += `#${item.name}`
         }
-        merchandise.push(item.name)
+        merchandise.push(item.name+" x "+`${item.quantity}`)
     })
     baseParam.TotalAmount = String(totalPrice+req.body.shippingInfo.price);
 
@@ -74,14 +74,13 @@ const verifyOrder= async (req,res)=>{
     const create = new ECPAY(options);
     const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
 
-    await orderModel.findOneAndUpdate({orderNo:data.MerchantTradeNo},{
-        paymentType:data.PaymentType,
-        paymentTime:data.PaymentDate,
-    })
-
     if (checkValue === CheckMacValue){
         if (data.RtnCode === "1"){
-            await orderModel.findOneAndUpdate({orderNo:data.MerchantTradeNo},{payment:true});
+            await orderModel.findOneAndUpdate({orderNo:data.MerchantTradeNo},{
+                payment:true,
+                paymentType:data.PaymentType === 'Credit_CreditCard'?'信用卡':'',
+                paymentTime:data.PaymentDate,
+            });
             res.send('1|OK');
         }else{
             await orderModel.findOneAndDelete({orderNo:data.MerchantTradeNo});
@@ -97,12 +96,19 @@ const resultOrder = async (req,res)=>{
         res.status(200).json({
             msg:"支付成功",
             orderNo:result.orderNo,
-            create_time:result.create_time,
-            totalPrice:result.totalPrice
+            createTime:result.createTime,
+            totalPrice:result.totalPrice,
+            paymentTime:result.paymentTime,
+            paymentType:result.paymentType,
+            merchandise:result.merchandise
         })
     }else{
         res.status(500).json({
-            msg:"支付失敗"
+            msg:"支付失敗",
+            orderNo:result.orderNo,
+            merchandise:result.merchandise,
+            totalPrice:result.totalPrice,
+            createTime:result.createTime,
         })
     }
 }
