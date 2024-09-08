@@ -9,11 +9,13 @@ import userRouter from "./routers/userRouter.js";
 import cartRouter from "./routers/cartRouter.js";
 import foodRouter from "./routers/foodRouter.js";
 import orderRouter from "./routers/orderRouter.js";
+import bodyParser from "body-parser";
 
 const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],

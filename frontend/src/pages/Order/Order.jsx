@@ -29,16 +29,12 @@ const Order = () => {
 
             const formHtml = response.data;
 
-            // 创建一个新的 div 元素来插入表单
             const formContainer = document.createElement('div');
             formContainer.innerHTML = formHtml;
 
-            // 将表单插入到页面中
             document.body.appendChild(formContainer);
 
-            // 提交表单
             formContainer.querySelector('form').submit();
-
 
         }).catch(error=>{
             console.log(error.response.data.msg);

@@ -65,20 +65,17 @@ const placeOrder = async (req,res)=>{
 }
 
 const verifyOrder= async (req,res)=>{
-    const {MerchantTradeNo,RtnCode,CheckMacValue} = req.body
-
-    const data = { ...req.body };
-    delete data.CheckMacValue;
+    const {Data,CheckMacValue} = req.body
 
     const create = new ECPAY(options);
-    const checkValue = create.payment_client.helper.gen_chk_mac_value(data);
+    const checkValue = create.payment_client.helper.gen_chk_mac_value(Data);
 
     if (checkValue === CheckMacValue){
-        if (RtnCode === "1"){
-            await orderModel.findOneAndUpdate({orderNo:MerchantTradeNo},{payment:true});
+        if (Data.RtnCode === "1"){
+            await orderModel.findOneAndUpdate({orderNo:Data.OrderInfo.MerchantTradeNo},{payment:true});
             res.send('1|OK');
         }else{
-            await orderModel.findOneAndDelete({MerchantTradeNo});
+            await orderModel.findOneAndDelete({orderNo:Data.OrderInfo.MerchantTradeNo});
             res.send('0|FAIL');
         }
     }
