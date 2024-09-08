@@ -65,7 +65,8 @@ const placeOrder = async (req,res)=>{
 }
 
 const verifyOrder= async (req,res)=>{
-    const {data,CheckMacValue} = req.body
+    const data = req.body
+    const {CheckMacValue} = data;
     delete data.CheckMacValue;
 
     const create = new ECPAY(options);
