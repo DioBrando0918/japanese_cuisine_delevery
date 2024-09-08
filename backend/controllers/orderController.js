@@ -37,7 +37,7 @@ const placeOrder = async (req,res)=>{
         if (!baseParam.ItemName){
             baseParam.ItemName = item.name+" x "+`${item.quantity}`;
         }else{
-            baseParam.ItemName += `#${item.name}`
+            baseParam.ItemName += `#${item.name+" x "+ item.quantity}`
         }
         merchandise.push(item.name+" x "+`${item.quantity}`)
     })
