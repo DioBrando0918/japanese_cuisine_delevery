@@ -57,7 +57,7 @@
 }
 
 .order-result .spinner{
-    margin: auto;
+    margin: 25vh auto;
     width: 100px;
     height: 100px;
     place-self: center;
