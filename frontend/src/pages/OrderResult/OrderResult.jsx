@@ -23,7 +23,6 @@ const OrderResult = () => {
     const {url} = useContext(StoreContext);
 
     const getOrderResult = ()=>{
-        console.log(merchantTradeNo)
         axios.post(`${url}/api/order/result`,{merchantTradeNo}).then(response=>{
             setResult("success");
             setData({
