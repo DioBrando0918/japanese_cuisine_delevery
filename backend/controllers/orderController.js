@@ -113,8 +113,31 @@ const resultOrder = async (req,res)=>{
     }
 }
 
+const userOrders = async (req,res)=>{
+    try{
+        const userOrders = await orderModel.find({ userId: req.body.userId }).sort({ _id: -1 });
+        if (userOrders.length>0){
+            res.status(200).json({
+                msg:"已查到訂單紀錄",
+                userOrders
+            })
+        }else{
+            res.status(404).json({
+                msg:"無訂單紀錄"
+            })
+        }
+
+    }catch (error){
+        res.status(500).json({
+            msg:`${error}`
+        })
+    }
+
+}
+
 export {
     placeOrder,
     verifyOrder,
-    resultOrder
+    resultOrder,
+    userOrders
 }

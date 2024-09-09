@@ -50,6 +50,7 @@ import food_30 from './food_30.jpeg'
 import food_31 from './food_31.jpeg'
 import success_img from './success.png'
 import fail_img from './fail.png'
+import empty_img from './empty-img.png'
 
 const assets = {
     cooking_img,
@@ -66,7 +67,8 @@ const assets = {
     remove_icon_red,
     cross_icon,
     success_img,
-    fail_img
+    fail_img,
+    empty_img
 }
 
 const menu_list =[

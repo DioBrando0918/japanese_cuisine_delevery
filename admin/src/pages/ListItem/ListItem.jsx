@@ -56,6 +56,7 @@ const ListItem = ({url}) => {
                                     <td className='table-item'><span onClick={()=>{removeItem(item._id)}} className="material-symbols-outlined">delete</span>
                                     </td>
                                 </tr>
+
                             )
                         })
                     }

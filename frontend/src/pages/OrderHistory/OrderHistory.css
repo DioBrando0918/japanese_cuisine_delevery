@@ -1,0 +1,104 @@
+.order-history{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto;
+    overflow-y: auto;
+    font-size: max(.8vw,14px);
+}
+
+.history-table{
+    table-layout: auto;
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15vh auto;
+    min-height: max(30vh,150px);
+}
+
+.history-table thead tr{
+    background-color: #d5d5d5;
+    text-align: center;
+}
+
+.history-table thead th{
+    padding: 10px;
+}
+
+.history-table tbody td{
+    padding: max(.8vw,10px);
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.merchandise-col-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: max(.9vw,10px);
+}
+
+.merchandise-col-info p{
+    margin: 0;
+    color: black;
+}
+
+.orderNo-col,
+.create-time-col,
+.payment-time-col{
+    width: 13%;
+    min-width: 120px;
+}
+
+.merchandise-col{
+    width: 30%;
+}
+
+.address-col{
+    width: 24%;
+    max-width: 50px;
+}
+
+.payment-type-col,
+.total-price-col{
+    width: 7%;
+    min-width: 100px;
+}
+
+.no-history{
+    border-radius: 10px;
+    position: relative;
+    margin: 10vh auto;
+    height: max(22vw ,350px);
+    width: max(18vw,300px);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: max(2vw,16px);
+}
+
+.no-history-content{
+    position: absolute;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: max(1.5vw,24px);
+}
+
+.no-history button{
+    width: 90%;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    bottom: 7%;
+    margin-top: max(1vw,16px);
+}
+
+.no-history button a{
+    color: inherit;
+}

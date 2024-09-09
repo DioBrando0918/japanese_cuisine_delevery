@@ -14,6 +14,7 @@ import {SnackbarProvider} from "notistack";
 import Order from "./pages/Order/Order.jsx";
 import EmptyCart from "./pages/EmptyCart/EmptyCart.jsx";
 import OrderResult from "./pages/OrderResult/OrderResult.jsx";
+import OrderHistory from "./pages/OrderHistory/OrderHistory.jsx";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                         <Route path='/empty-cart' element={<EmptyCart/>}></Route>
                         <Route path='/order' element={<Order/>}></Route>
                         <Route path='/orderResult' element={<OrderResult/>}></Route>
+                        <Route path='/orderHistory' element={<OrderHistory/>}></Route>
                     </Routes>
                 </div>
                 <Footer></Footer>

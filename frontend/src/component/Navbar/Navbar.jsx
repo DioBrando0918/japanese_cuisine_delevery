@@ -62,7 +62,8 @@ const Navbar = ({showLogin,setShowLogin}) => {
                             ? <div className='nav-profile'>
                                 <span className="material-symbols-outlined">person</span>
                                 <ul className='nav-profile-dropdown'>
-                                    <li><span className="material-symbols-outlined">work</span><span>訂單</span></li>
+                                    <li><Link to='/orderHistory'><span
+                                        className="material-symbols-outlined">work</span><span>訂單</span></Link></li>
                                     <hr/>
                                     <li onClick={logout}><span className="material-symbols-outlined">logout</span><span>登出</span></li>
                                 </ul>

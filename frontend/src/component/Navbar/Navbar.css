@@ -99,7 +99,8 @@ a, a:hover, a:focus, a:active {
 }
 
 
-.nav-profile-dropdown li{
+.nav-profile-dropdown li,
+.nav-profile-dropdown a{
     display: flex;
     align-items: center;
     gap: 10px;
