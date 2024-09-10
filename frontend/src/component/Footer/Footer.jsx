@@ -8,6 +8,12 @@ const Footer = () => {
 
     const {menu,setMenu} = useContext(StoreContext);
 
+    const handleClick = () => {
+        window.scrollTo(0, 0);
+        setMenu('menu');
+    };
+
+
     return (
         <div className='footer' id='footer'>
             <div className='footer-head'>
@@ -18,7 +24,7 @@ const Footer = () => {
             <div className='footer-body'>
                 <ul className='link'>
                     <li><a href="/" onClick={()=>{setMenu('home')}}>回首頁</a></li>
-                    <li><Link to="/menu-introduce" onClick={()=>{setMenu('menu')}}>菜單介紹</Link></li>
+                    <li><Link to="/menu-introduce" onClick={()=>{handleClick()}}>菜單介紹</Link></li>
                     <li><a>訂購須知</a></li>
                     <li><a>隱私權政策</a></li>
                 </ul>
