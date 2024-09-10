@@ -29,7 +29,7 @@ const StoreContextProvider = (props)=>{
             axios.post(`${url}/api/cart/add`,{itemId},{headers:{token}}).then((response)=>{
 
             }).catch((error)=>{
-                enqueueSnackbar('加入購物車失敗', { variant: 'error' });
+                enqueueSnackbar('加入購物籃失敗', { variant: 'error' });
                 console.log(`${error.response.data.msg}`);
             })
         }
@@ -48,7 +48,6 @@ const StoreContextProvider = (props)=>{
 
     const removeFromCart = (itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}));
-
         if (token){
              axios.post(`${url}/api/cart/remove`,{itemId},{headers:{token}}).then(response=>{
 

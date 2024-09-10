@@ -24,7 +24,6 @@ const Cart = ({setShowLogin}) => {
         }
         else{
             axios.post(`${url}/api/cart/shippingInfo`,{address},{headers:{token}}).then(response=>{
-                console.log('aa')
                 setShippingInfo(response.data.shippingInfo);
                 navigate('/order')
             }).catch(error=>{

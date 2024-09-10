@@ -10,6 +10,10 @@ const Order = () => {
     const { enqueueSnackbar } = useSnackbar();
 
     const checkout = ()=>{
+        alert('交易過程中請務必使用綠界金流提供的測試用信用卡號。' +
+            '\n信用卡測試卡號 : 4311-9511-1111-1111' +
+            '\n有效期限: 任意輸入有效數字 ' +
+            '\n安全碼: 任意輸入三碼數字')
         let orderItems = [];
         foodList.map((item,index)=>{
             if (cartItems[item._id] > 0){

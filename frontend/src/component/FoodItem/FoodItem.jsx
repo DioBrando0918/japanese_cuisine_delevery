@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import './FoodItem.css'
 import {StoreContext} from "../../context/StoreContext.jsx";
 import {assets} from "../../assets/assets.js";
+import {useSnackbar} from "notistack";
 
 const FoodItem = ({_id,name,price,description,image}) => {
 
@@ -17,11 +18,12 @@ const FoodItem = ({_id,name,price,description,image}) => {
                     {
                         !cartItems[_id]
                             ? <img className='add' onClick={() => {
-                                addToCart(_id)
+                                addToCart(_id);
+
                             }} src={assets.add_icon_white} alt=""/>
                             : <div className='food-item-counter'>
                                 <img onClick={() => {
-                                    removeFromCart(_id)
+                                    removeFromCart(_id);
                                 }} src={assets.remove_icon_red} alt=""/>
                                 <p>{cartItems[_id]}</p>
                                 <img onClick={() => {

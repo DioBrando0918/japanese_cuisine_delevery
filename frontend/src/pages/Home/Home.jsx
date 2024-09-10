@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         if (!localStorage.getItem('isSendMessage')){
-            enqueueSnackbar('此網站為線上餐廳系統的展示專案，不代表實際餐廳或提供真實服務。僅用於展示目的。', { variant: 'info' });
+            alert('此網站為線上餐廳系統的展示專案，不代表實際餐廳或提供真實服務。僅用於展示目的。');
             localStorage.setItem('isSendMessage', 'true');
         }
     }, []);
