@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import './FoodDisplay.css'
 import FoodItem from "../FoodItem/FoodItem.jsx";
 import {StoreContext} from "../../context/StoreContext.jsx";
+import {Link} from "react-router-dom";
 
 const FoodDisplay = ({category,setCategory}) => {
 
@@ -34,12 +35,12 @@ const FoodDisplay = ({category,setCategory}) => {
                 }
             </div>
             <div className='sidebar'>
-                <div className='shopping-bag-block'>
+                <Link to={Object.values(cartItems).some(quantity=>quantity>0)?'/cart':'/empty-cart'} className='shopping-bag-block'>
                     {
                         getTotalNumber() !== 0 ? <div className='number'>{getTotalNumber()}</div>:<></>
                     }
                     <span className="material-symbols-outlined">shopping_cart</span>
-                </div>
+                </Link>
             </div>
         </div>
     )

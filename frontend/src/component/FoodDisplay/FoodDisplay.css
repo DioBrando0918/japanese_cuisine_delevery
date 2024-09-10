@@ -30,6 +30,10 @@
     justify-content: center;
 }
 
+.food-display .sidebar a{
+    color: inherit;
+}
+
 .shopping-bag-block{
     cursor: pointer;
     height: 30%;
