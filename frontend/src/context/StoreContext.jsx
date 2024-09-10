@@ -36,9 +36,10 @@ const StoreContextProvider = (props)=>{
     }
 
     const deleteItem = (itemId) =>{
+        setCartItems((prev)=>({...prev,[itemId]:0}));
         if (token){
             axios.post(`${url}/api/cart/delete`,{itemId},{headers:{token}}).then(response=>{
-                setCartItems((prev)=>({...prev,[itemId]:0}));
+
             }).catch(error=>{
                 enqueueSnackbar('刪除失敗', { variant: 'error' });
                 console.log(`${error.response.data.msg}`);
