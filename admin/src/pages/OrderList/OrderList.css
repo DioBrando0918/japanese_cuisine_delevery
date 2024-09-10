@@ -1,0 +1,91 @@
+.order-list{
+    background-color: white;
+    display: flex;
+    width: 80%;
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.order-list .order-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-list .order-table th,
+.order-list .order-table td{
+    text-align: center;
+}
+
+.order-list .table-title th{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+.order-list .table-item {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word;
+}
+
+.order-list .table-item img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.order-list .table-item p {
+    margin: 0;
+}
+
+
+.order-list .orderNo-col,
+.order-list .userId-col,
+.order-list .create-time-col,
+.order-list .payment-time-col,
+.order-list .address-col{
+    width: 12%;
+    min-width: 200px;
+}
+
+.order-list .payment-type-col,
+.order-list .total-price-col{
+    width: 5%;
+    min-width: 75px;
+}
+
+.order-list .merchandise-col{
+    width: 30%;
+    min-width: 250px;
+}
+
+.order-list .merchandise-col-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: max(.9vw,10px);
+}
+
+.order-list .merchandise-col-info p{
+    margin: 0;
+    color: black;
+}
+
+.order-list .payment-type-col,
+.order-list .total-price-col{
+    width: 8%;
+}
+
+
+@media (max-width: 600px) {
+    .order-list .table-item img{
+        width: 80px;
+    }
+}
+

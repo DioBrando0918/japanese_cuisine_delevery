@@ -17,7 +17,7 @@ const Sidebar = () => {
                 <Link className='sidebar-item' to='/list-item'><span
                     className="material-symbols-outlined">list_alt</span><span>品項列表</span></Link>
 
-                <Link className='sidebar-item' to='/add-item'><span
+                <Link className='sidebar-item' to='/order-list'><span
                     className="material-symbols-outlined">order_approve</span><span>訂單列表</span></Link>
             </div>
         </div>

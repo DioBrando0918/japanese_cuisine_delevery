@@ -8,6 +8,7 @@ import AddItem from "./pages/AddItem/AddItem.jsx";
 import ListItem from "./pages/ListItem/ListItem.jsx";
 import {ToastContainer} from "react-toastify";
 import {SnackbarProvider} from "notistack";
+import OrderList from "./pages/OrderList/OrderList.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
               <Routes>
                   <Route path='/' element={<AddItem url = {url}/>}></Route>
                   <Route path='/list-item' element={<ListItem url = {url}/>}></Route>
+                  <Route path='/order-list' element={<OrderList url = {url}/>}></Route>
               </Routes>
           </div>
           </SnackbarProvider>
