@@ -2,7 +2,7 @@
 
 ## 目錄
 
-- [japanese_cuisine_delevery](#japanese_cuisine_delevery)
+- [japanese_cuisine_delivery](#japanese_cuisine_delivery)
     - [目錄](#目錄)
     - [示範](#示範)
     - [功能](#功能)
