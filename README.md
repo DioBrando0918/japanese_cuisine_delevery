@@ -33,7 +33,7 @@
 ## 技術
 
 - **前端**：React, React Router, Axios, Snackbar
-- **後端**：Node.js, Express, MongoDB, Google api, ECPay 綠界科技
+- **後端**：Node.js, Express, MongoDB-atlas, Google maps api, ECPay 綠界科技
 - **部署**：AWS EC2
 
 ## 安裝
