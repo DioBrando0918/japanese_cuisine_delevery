@@ -58,17 +58,17 @@
 
 1. 啟動後端伺服器
     ```bash
-    cd ~/backend
+    cd backend/
     npm run server
     ```
 2. 啟動前端
     ```bash
-    cd ~/frontend
+    cd frontend/
     npm run dev
     ```
 3. 起動後台管理系統
     ```bash
-    cd ~/admin
+    cd admin/
     npm run dev
     ```
 4. 開啟瀏覽器並訪問 `http://localhost:443`
