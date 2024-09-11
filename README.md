@@ -1,4 +1,4 @@
-# japanese_cuisine_delevery
+# japanese_cuisine_delivery
 
 ## 目錄
 
