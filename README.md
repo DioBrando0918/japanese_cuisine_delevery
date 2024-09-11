@@ -71,7 +71,7 @@
     cd admin/
     npm run dev
     ```
-4. 開啟瀏覽器並訪問 `http://localhost:443`
+4. 開啟瀏覽器並訪問 `http://localhost:443` 與 `http://localhost:5000`
 
 ## API 文件
 
