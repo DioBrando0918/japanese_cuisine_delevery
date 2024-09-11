@@ -41,6 +41,10 @@
     margin: 0;
 }
 
+.list-item .table-item span:last-child{
+    cursor: pointer;
+}
+
 .list-item .photo-col{
     width: 15%;
     min-width: 80px;
