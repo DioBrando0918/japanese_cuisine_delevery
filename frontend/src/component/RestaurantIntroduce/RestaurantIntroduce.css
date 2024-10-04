@@ -23,10 +23,12 @@
 
 .description h2{
     color: var(--logo-color);
+    font-size: max(1.1vw,22px);
 }
 
 .description p{
     color: white;
+    font-size: max(1vw,20px);
 }
 
 .description hr{

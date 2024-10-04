@@ -20,6 +20,7 @@
 }
 
 .cart h4{
+    font-size: max(1.1vw,22px);
     padding: 5px;
     margin: 0;
     text-align: center;
@@ -67,6 +68,10 @@
     color: #6c6c6c;
 }
 
+.cart-items .delete span{
+    font-size: max(1vw,20px);
+}
+
 .cart-item{
     border-bottom: 1px solid #ddd;
     padding: 8px;
@@ -75,7 +80,7 @@
 }
 
 .cart-item img{
-    max-width: 100px;
+    max-width: max(4vw,100px);
     height: auto;
     border-radius: 4px;
 }
@@ -89,11 +94,13 @@
 }
 
 .cart-item .number-operate span:first-child{
+    font-size: max(1vw,20px);
     cursor: pointer;
     color: red;
 }
 
 .cart-item .number-operate span:last-child{
+     font-size: max(1vw,20px);
      cursor: pointer;
      color: green;
  }
@@ -149,6 +156,11 @@
 
 .address-item select{
     outline: none;
+    font-size: max(1vw,20px);
+}
+
+.address-item option {
+    font-size: max(.3vw, 20px);
 }
 
 .address .notice{

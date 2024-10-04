@@ -38,6 +38,10 @@
     margin-bottom: 10px;
 }
 
+.result-info .title-info h3{
+    font-size: max(1vw,20px);
+}
+
 .result-info .multi-field{
     display: flex;
     justify-content: space-between;

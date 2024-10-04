@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 1vh 0;
 }
 
 .logo a{
@@ -23,12 +23,12 @@
 }
 .logo span:first-child{
     color: var(--logo-color);
-    font-size: 2.3rem;
+    font-size: max(1.5vw,20px);
 }
 
 .logo span:last-child{
     font-family: var(--ink-font-family);
-    font-size: 1.8rem;
+    font-size: max(1.5vw,20px);
 }
 
 .navbar-menu{
@@ -36,8 +36,8 @@
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 20px;
-    font-size: 1.2rem;
+    gap: max(1vw,20px);
+    font-size: max(.8vw,20px);
 }
 
 .navbar-menu a:nth-child(3){
@@ -62,7 +62,7 @@
 
 .navbar-right span{
     cursor: pointer;
-    font-size: 2rem;
+    font-size: max(1.5vw,20px);
 }
 
 a, a:hover, a:focus, a:active {
@@ -129,9 +129,9 @@ a, a:hover, a:focus, a:active {
 }
 
 .shopping-bag .dot{
+    width: max(.5vw,8px);
+    height: max(.5vw,8px);
     position: absolute;
-    min-width: 11px;
-    min-height: 11px;
     background-color: var(--logo-color);
     border-radius: 50%;
     top: -3px;
