@@ -60,7 +60,7 @@
 }
 
 .item-category option{
-    font-size: max(.9vw,16px);
+    font-size: max(.3vw,16px);
 }
 
 .item-price input{

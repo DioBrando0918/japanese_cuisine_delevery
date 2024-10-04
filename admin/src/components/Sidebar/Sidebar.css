@@ -23,6 +23,11 @@
     cursor: pointer;
 }
 
+.sidebar .logo a span:first-child,
+.sidebar .logo a span:last-child{
+    font-size:max(1vw,16px);
+}
+
 .sidebar .logo p{
     font-size:max(1vw,16px);
     color: #c5c2c2;

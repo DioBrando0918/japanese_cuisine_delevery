@@ -19,6 +19,7 @@
 }
 
 .list-item .table-title th{
+    font-size: max(1vw,20px);
     background-color: black;
     color: white;
     padding: 10px;
@@ -26,14 +27,14 @@
 }
 
 .list-item .table-item {
+    font-size: max(.8vw,16px);
     border-bottom: 1px solid #ddd;
     padding: 8px;
     word-wrap: break-word;
 }
 
 .list-item .table-item img {
-    max-width: 150px;
-    height: auto;
+    width: max(5vw,150px);
     border-radius: 4px;
 }
 
@@ -42,6 +43,7 @@
 }
 
 .list-item .table-item span:last-child{
+    font-size: max(.8vw,20px);
     cursor: pointer;
 }
 
