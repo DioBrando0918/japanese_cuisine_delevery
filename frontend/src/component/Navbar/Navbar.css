@@ -90,14 +90,13 @@ a, a:hover, a:focus, a:active {
 .nav-profile-dropdown{
     right: 0;
     z-index: 1;
-    width: 8rem;
+    width: max(7vw,130px);
     display: none;
     position: absolute;
 }
 .nav-profile-dropdown hr{
     margin: 10px 0;
 }
-
 
 .nav-profile-dropdown li,
 .nav-profile-dropdown a{
@@ -112,11 +111,13 @@ a, a:hover, a:focus, a:active {
 }
 
 .nav-profile-dropdown li span:first-child{
-    font-size: 1.5rem;
+    font-size: max(.8vw,20px);
+
 }
 
 .nav-profile-dropdown li span:last-child{
-    font-size: 1rem;
+    font-size: max(.8vw,20px);
+
 }
 
 .navbar .active{
