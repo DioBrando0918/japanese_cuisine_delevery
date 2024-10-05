@@ -78,7 +78,7 @@
 }
 
 .food-operate .add{
-    width: max(1.2vw,20px);
+    width: max(1.6vw,40px);
 }
 
 @media  (min-width: 420px) and (max-width: 640px){
